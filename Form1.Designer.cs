@@ -45,8 +45,6 @@
             btnA3 = new Button();
             btnA2 = new Button();
             btnA1 = new Button();
-            richTextBoxRows = new RichTextBox();
-            richTextBoxColumns = new RichTextBox();
             lblRows = new Label();
             lblSeats = new Label();
             tbCustName = new TextBox();
@@ -57,48 +55,54 @@
             btnFillAllSeats = new Button();
             btnCancelAll = new Button();
             lblMessage = new Label();
+            lbRows = new ListBox();
+            lbSeats = new ListBox();
             venueGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // lblTotalCapacity
             // 
             lblTotalCapacity.AutoSize = true;
-            lblTotalCapacity.Font = new Font("Segoe UI", 11.25F);
+            lblTotalCapacity.Font = new Font("Segoe UI", 11F);
             lblTotalCapacity.Location = new Point(12, 9);
             lblTotalCapacity.Name = "lblTotalCapacity";
             lblTotalCapacity.Size = new Size(126, 20);
             lblTotalCapacity.TabIndex = 1;
             lblTotalCapacity.Text = "Total Capacity: 12";
+            lblTotalCapacity.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblAvailableSeats
             // 
             lblAvailableSeats.AutoSize = true;
-            lblAvailableSeats.Font = new Font("Segoe UI", 11.25F);
-            lblAvailableSeats.Location = new Point(152, 9);
+            lblAvailableSeats.Font = new Font("Segoe UI", 11F);
+            lblAvailableSeats.Location = new Point(162, 9);
             lblAvailableSeats.Name = "lblAvailableSeats";
             lblAvailableSeats.Size = new Size(131, 20);
             lblAvailableSeats.TabIndex = 2;
             lblAvailableSeats.Text = "Available seats: 12";
+            lblAvailableSeats.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblCapacityPercentage
             // 
             lblCapacityPercentage.AutoSize = true;
-            lblCapacityPercentage.Font = new Font("Segoe UI", 11.25F);
-            lblCapacityPercentage.Location = new Point(309, 9);
+            lblCapacityPercentage.Font = new Font("Segoe UI", 11F);
+            lblCapacityPercentage.Location = new Point(325, 9);
             lblCapacityPercentage.Name = "lblCapacityPercentage";
             lblCapacityPercentage.Size = new Size(99, 20);
             lblCapacityPercentage.TabIndex = 3;
             lblCapacityPercentage.Text = "0.0% capacity";
+            lblCapacityPercentage.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblWaitingList
             // 
-            lblWaitingList.AutoSize = true;
-            lblWaitingList.Font = new Font("Segoe UI", 11.25F);
-            lblWaitingList.Location = new Point(428, 9);
+            lblWaitingList.AutoEllipsis = true;
+            lblWaitingList.Font = new Font("Segoe UI", 11F);
+            lblWaitingList.Location = new Point(451, 9);
             lblWaitingList.Name = "lblWaitingList";
-            lblWaitingList.Size = new Size(194, 20);
+            lblWaitingList.Size = new Size(266, 20);
             lblWaitingList.TabIndex = 4;
             lblWaitingList.Text = "no one is on the waiting list.";
+            lblWaitingList.TextAlign = ContentAlignment.MiddleRight;
             // 
             // venueGroupBox
             // 
@@ -114,9 +118,10 @@
             venueGroupBox.Controls.Add(btnA3);
             venueGroupBox.Controls.Add(btnA2);
             venueGroupBox.Controls.Add(btnA1);
+            venueGroupBox.Font = new Font("Segoe UI", 12F);
             venueGroupBox.Location = new Point(31, 58);
             venueGroupBox.Name = "venueGroupBox";
-            venueGroupBox.Size = new Size(291, 290);
+            venueGroupBox.Size = new Size(365, 270);
             venueGroupBox.TabIndex = 5;
             venueGroupBox.TabStop = false;
             venueGroupBox.Text = "Venue:";
@@ -125,9 +130,9 @@
             // 
             btnC4.BackColor = Color.FromArgb(128, 255, 128);
             btnC4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnC4.Location = new Point(224, 204);
+            btnC4.Location = new Point(288, 182);
             btnC4.Name = "btnC4";
-            btnC4.Size = new Size(55, 71);
+            btnC4.Size = new Size(70, 70);
             btnC4.TabIndex = 11;
             btnC4.Text = "C4";
             btnC4.UseVisualStyleBackColor = false;
@@ -136,9 +141,9 @@
             // 
             btnC3.BackColor = Color.FromArgb(128, 255, 128);
             btnC3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnC3.Location = new Point(155, 204);
+            btnC3.Location = new Point(194, 182);
             btnC3.Name = "btnC3";
-            btnC3.Size = new Size(55, 71);
+            btnC3.Size = new Size(70, 70);
             btnC3.TabIndex = 10;
             btnC3.Text = "C3";
             btnC3.UseVisualStyleBackColor = false;
@@ -147,9 +152,9 @@
             // 
             btnC2.BackColor = Color.FromArgb(128, 255, 128);
             btnC2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnC2.Location = new Point(86, 204);
+            btnC2.Location = new Point(100, 182);
             btnC2.Name = "btnC2";
-            btnC2.Size = new Size(55, 71);
+            btnC2.Size = new Size(70, 70);
             btnC2.TabIndex = 9;
             btnC2.Text = "C2";
             btnC2.UseVisualStyleBackColor = false;
@@ -158,9 +163,9 @@
             // 
             btnC1.BackColor = Color.FromArgb(128, 255, 128);
             btnC1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnC1.Location = new Point(17, 204);
+            btnC1.Location = new Point(6, 182);
             btnC1.Name = "btnC1";
-            btnC1.Size = new Size(55, 71);
+            btnC1.Size = new Size(70, 70);
             btnC1.TabIndex = 8;
             btnC1.Text = "C1";
             btnC1.UseVisualStyleBackColor = false;
@@ -169,9 +174,9 @@
             // 
             btnB4.BackColor = Color.FromArgb(128, 255, 128);
             btnB4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnB4.Location = new Point(224, 114);
+            btnB4.Location = new Point(288, 106);
             btnB4.Name = "btnB4";
-            btnB4.Size = new Size(55, 71);
+            btnB4.Size = new Size(70, 70);
             btnB4.TabIndex = 7;
             btnB4.Text = "B4";
             btnB4.UseVisualStyleBackColor = false;
@@ -180,9 +185,9 @@
             // 
             btnB3.BackColor = Color.FromArgb(128, 255, 128);
             btnB3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnB3.Location = new Point(155, 114);
+            btnB3.Location = new Point(194, 106);
             btnB3.Name = "btnB3";
-            btnB3.Size = new Size(55, 71);
+            btnB3.Size = new Size(70, 70);
             btnB3.TabIndex = 6;
             btnB3.Text = "B3";
             btnB3.UseVisualStyleBackColor = false;
@@ -191,9 +196,9 @@
             // 
             button3.BackColor = Color.FromArgb(128, 255, 128);
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            button3.Location = new Point(86, 114);
+            button3.Location = new Point(100, 106);
             button3.Name = "button3";
-            button3.Size = new Size(55, 71);
+            button3.Size = new Size(70, 70);
             button3.TabIndex = 5;
             button3.Text = "B2";
             button3.UseVisualStyleBackColor = false;
@@ -202,9 +207,9 @@
             // 
             btnB1.BackColor = Color.FromArgb(128, 255, 128);
             btnB1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnB1.Location = new Point(17, 114);
+            btnB1.Location = new Point(6, 106);
             btnB1.Name = "btnB1";
-            btnB1.Size = new Size(55, 71);
+            btnB1.Size = new Size(70, 70);
             btnB1.TabIndex = 4;
             btnB1.Text = "B1";
             btnB1.UseVisualStyleBackColor = false;
@@ -213,9 +218,9 @@
             // 
             btnA4.BackColor = Color.FromArgb(128, 255, 128);
             btnA4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnA4.Location = new Point(224, 25);
+            btnA4.Location = new Point(288, 30);
             btnA4.Name = "btnA4";
-            btnA4.Size = new Size(55, 71);
+            btnA4.Size = new Size(70, 70);
             btnA4.TabIndex = 3;
             btnA4.Text = "A4";
             btnA4.UseVisualStyleBackColor = false;
@@ -224,9 +229,9 @@
             // 
             btnA3.BackColor = Color.FromArgb(128, 255, 128);
             btnA3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnA3.Location = new Point(155, 25);
+            btnA3.Location = new Point(194, 30);
             btnA3.Name = "btnA3";
-            btnA3.Size = new Size(55, 71);
+            btnA3.Size = new Size(70, 70);
             btnA3.TabIndex = 2;
             btnA3.Text = "A3";
             btnA3.UseVisualStyleBackColor = false;
@@ -235,9 +240,9 @@
             // 
             btnA2.BackColor = Color.FromArgb(128, 255, 128);
             btnA2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnA2.Location = new Point(86, 25);
+            btnA2.Location = new Point(100, 30);
             btnA2.Name = "btnA2";
-            btnA2.Size = new Size(55, 71);
+            btnA2.Size = new Size(70, 70);
             btnA2.TabIndex = 1;
             btnA2.Text = "A2";
             btnA2.UseVisualStyleBackColor = false;
@@ -246,125 +251,143 @@
             // 
             btnA1.BackColor = Color.FromArgb(128, 255, 128);
             btnA1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnA1.Location = new Point(17, 25);
+            btnA1.Location = new Point(6, 30);
             btnA1.Name = "btnA1";
-            btnA1.Size = new Size(55, 71);
+            btnA1.Size = new Size(70, 70);
             btnA1.TabIndex = 0;
             btnA1.Text = "A1";
             btnA1.UseVisualStyleBackColor = false;
             // 
-            // richTextBoxRows
-            // 
-            richTextBoxRows.Location = new Point(355, 75);
-            richTextBoxRows.Name = "richTextBoxRows";
-            richTextBoxRows.Size = new Size(110, 149);
-            richTextBoxRows.TabIndex = 6;
-            richTextBoxRows.Text = "A\nB\nC";
-            // 
-            // richTextBoxColumns
-            // 
-            richTextBoxColumns.Location = new Point(489, 75);
-            richTextBoxColumns.Name = "richTextBoxColumns";
-            richTextBoxColumns.Size = new Size(110, 149);
-            richTextBoxColumns.TabIndex = 7;
-            richTextBoxColumns.Text = "1\n2\n3\n4";
-            // 
             // lblRows
             // 
             lblRows.AutoSize = true;
-            lblRows.Location = new Point(355, 57);
+            lblRows.Font = new Font("Segoe UI", 12F);
+            lblRows.Location = new Point(423, 52);
             lblRows.Name = "lblRows";
-            lblRows.Size = new Size(38, 15);
+            lblRows.Size = new Size(44, 21);
             lblRows.TabIndex = 8;
-            lblRows.Text = "Rows:";
+            lblRows.Text = "Row:";
             // 
             // lblSeats
             // 
             lblSeats.AutoSize = true;
-            lblSeats.Location = new Point(489, 57);
+            lblSeats.Font = new Font("Segoe UI", 12F);
+            lblSeats.Location = new Point(573, 52);
             lblSeats.Name = "lblSeats";
-            lblSeats.Size = new Size(58, 15);
+            lblSeats.Size = new Size(50, 21);
             lblSeats.TabIndex = 9;
-            lblSeats.Text = "Columns:";
+            lblSeats.Text = "Seats:";
             // 
             // tbCustName
             // 
-            tbCustName.Location = new Point(355, 251);
+            tbCustName.Font = new Font("Segoe UI", 12F);
+            tbCustName.Location = new Point(423, 196);
             tbCustName.Name = "tbCustName";
-            tbCustName.Size = new Size(244, 23);
+            tbCustName.Size = new Size(285, 29);
             tbCustName.TabIndex = 10;
             // 
             // lblCustName
             // 
             lblCustName.AutoSize = true;
-            lblCustName.Location = new Point(355, 234);
+            lblCustName.Font = new Font("Segoe UI", 12F);
+            lblCustName.Location = new Point(423, 173);
             lblCustName.Name = "lblCustName";
-            lblCustName.Size = new Size(97, 15);
+            lblCustName.Size = new Size(124, 21);
             lblCustName.TabIndex = 11;
-            lblCustName.Text = "Customer Name:";
+            lblCustName.Text = "Customer name:";
             // 
             // btnBook
             // 
             btnBook.BackColor = Color.LightSkyBlue;
-            btnBook.Location = new Point(355, 289);
+            btnBook.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnBook.Location = new Point(423, 240);
             btnBook.Name = "btnBook";
-            btnBook.Size = new Size(60, 35);
+            btnBook.Size = new Size(135, 55);
             btnBook.TabIndex = 12;
             btnBook.Text = "Book";
             btnBook.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
-            btnCancel.BackColor = Color.OrangeRed;
-            btnCancel.Location = new Point(423, 289);
+            btnCancel.BackColor = Color.Firebrick;
+            btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(573, 240);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(60, 35);
+            btnCancel.Size = new Size(135, 55);
             btnCancel.TabIndex = 13;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnWaitlist
             // 
-            btnWaitlist.Location = new Point(489, 289);
+            btnWaitlist.Font = new Font("Segoe UI", 12F);
+            btnWaitlist.Location = new Point(423, 301);
             btnWaitlist.Name = "btnWaitlist";
-            btnWaitlist.Size = new Size(110, 35);
+            btnWaitlist.Size = new Size(285, 42);
             btnWaitlist.TabIndex = 14;
             btnWaitlist.Text = "Add to waitlist";
             btnWaitlist.UseVisualStyleBackColor = true;
             // 
             // btnFillAllSeats
             // 
-            btnFillAllSeats.Location = new Point(355, 329);
+            btnFillAllSeats.Font = new Font("Segoe UI", 12F);
+            btnFillAllSeats.Location = new Point(423, 349);
             btnFillAllSeats.Name = "btnFillAllSeats";
-            btnFillAllSeats.Size = new Size(115, 35);
+            btnFillAllSeats.Size = new Size(135, 42);
             btnFillAllSeats.TabIndex = 15;
             btnFillAllSeats.Text = "Fill All Seats";
             btnFillAllSeats.UseVisualStyleBackColor = true;
             // 
             // btnCancelAll
             // 
-            btnCancelAll.Location = new Point(484, 329);
+            btnCancelAll.Font = new Font("Segoe UI", 10F);
+            btnCancelAll.Location = new Point(573, 349);
             btnCancelAll.Name = "btnCancelAll";
-            btnCancelAll.Size = new Size(115, 35);
+            btnCancelAll.Size = new Size(135, 42);
             btnCancelAll.TabIndex = 16;
             btnCancelAll.Text = "Cancel Bookings";
             btnCancelAll.UseVisualStyleBackColor = true;
             // 
             // lblMessage
             // 
-            lblMessage.AutoSize = true;
-            lblMessage.Font = new Font("Segoe UI", 11.25F);
-            lblMessage.Location = new Point(31, 358);
+            lblMessage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMessage.Location = new Point(31, 339);
             lblMessage.Name = "lblMessage";
-            lblMessage.Size = new Size(96, 20);
+            lblMessage.Size = new Size(365, 52);
             lblMessage.TabIndex = 17;
             lblMessage.Text = "Message Box";
+            lblMessage.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // lbRows
+            // 
+            lbRows.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbRows.FormattingEnabled = true;
+            lbRows.ItemHeight = 21;
+            lbRows.Items.AddRange(new object[] { "A", "B", "C" });
+            lbRows.Location = new Point(423, 76);
+            lbRows.Name = "lbRows";
+            lbRows.Size = new Size(135, 88);
+            lbRows.TabIndex = 18;
+            // 
+            // lbSeats
+            // 
+            lbSeats.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSeats.FormattingEnabled = true;
+            lbSeats.ItemHeight = 21;
+            lbSeats.Items.AddRange(new object[] { "1", "2", "3", "4" });
+            lbSeats.Location = new Point(573, 76);
+            lbSeats.Name = "lbSeats";
+            lbSeats.Size = new Size(135, 88);
+            lbSeats.TabIndex = 19;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(634, 387);
+            ClientSize = new Size(729, 403);
+            Controls.Add(lbSeats);
+            Controls.Add(lbRows);
             Controls.Add(lblMessage);
             Controls.Add(btnCancelAll);
             Controls.Add(btnFillAllSeats);
@@ -375,8 +398,6 @@
             Controls.Add(tbCustName);
             Controls.Add(lblSeats);
             Controls.Add(lblRows);
-            Controls.Add(richTextBoxColumns);
-            Controls.Add(richTextBoxRows);
             Controls.Add(venueGroupBox);
             Controls.Add(lblWaitingList);
             Controls.Add(lblCapacityPercentage);
@@ -407,8 +428,6 @@
         private Button btnA3;
         private Button btnA2;
         private Button btnA1;
-        private RichTextBox richTextBoxRows;
-        private RichTextBox richTextBoxColumns;
         private Label lblRows;
         private Label lblSeats;
         private TextBox tbCustName;
@@ -419,5 +438,7 @@
         private Button btnFillAllSeats;
         private Button btnCancelAll;
         private Label lblMessage;
+        private ListBox lbRows;
+        private ListBox lbSeats;
     }
 }
