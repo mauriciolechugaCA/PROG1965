@@ -59,19 +59,6 @@ namespace Assignment1
             }
         }
 
-        //METHOD -> Change the color of the label corresponding to certain seat
-        //ChatGPT
-        private void ChangeLabelColor(string seatID, Color color)
-        {
-            string labelName = $"lblSeat{seatID}";
-            Control[] controls = grpVenue.Controls.Find(labelName, true);
-
-            if (controls.Length > 0 && controls[0] is Label)
-            {
-                ((Label)controls[0]).BackColor = color;
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //Getting the selected Row and Col
@@ -92,9 +79,9 @@ namespace Assignment1
             //Checking if the seat is occupied
             if (seatsBook.Any(s => s.StartsWith($"{seatID},")))
             {
-            //Displaying Confirmation Message Box
-            //https://www.makeuseof.com/winforms-application-confirmation-dialog-box-create/
-            https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult
+                //Displaying Confirmation Message Box
+                //https://www.makeuseof.com/winforms-application-confirmation-dialog-box-create/
+                //https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult
                 DialogResult result = MessageBox.Show($"Do you want to cancel the {seatID} reservation?", "Cancel Confirmation", MessageBoxButtons.YesNo);
 
                 //Check if YES
@@ -120,8 +107,36 @@ namespace Assignment1
                 //Seat was not booked
                 lblFooter.Text = $"The seat {seatID} is not reserved and is available.";
             }
+        }
 
+        private void btnCancelAllBookings_Click(object sender, EventArgs e)
+        {
+            // Runs through items in list and clears everything
+            foreach (var seat in seatsBook)
+            {
+                string[] parts = seat.Split(',');
+                string seatID = parts[0];
 
+                ChangeLabelColor(seatID, Color.Lime);
+            }
+            seatsBook.Clear();
+            //Updatting the header
+            UpdateHeader();
+            //Confirmation message
+            lblFooter.Text = $"All bookings were cancelled.";
+        }
+
+        //METHOD -> Change the color of the label corresponding to certain seat
+        //ChatGPT
+        private void ChangeLabelColor(string seatID, Color color)
+        {
+            string labelName = $"lblSeat{seatID}";
+            Control[] controls = grpVenue.Controls.Find(labelName, true);
+
+            if (controls.Length > 0 && controls[0] is Label)
+            {
+                ((Label)controls[0]).BackColor = color;
+            }
         }
 
         //METHOD -> Update the header information
@@ -133,12 +148,59 @@ namespace Assignment1
             double percCapacity = Math.Round((double)seatsBook.Count / 12 * 100, 2);
 
 
-            lblHeader.Text = $"Total Capacity: 12, Seats Available: {seatsAvailable} " + $"({percCapacity} of capacity), " + $"Waiting List: {waitingListCount}";
+            lblHeader.Text = $"Total Capacity: 12, Seats Available: {seatsAvailable} " + $"({percCapacity}% of capacity), " + $"Waiting List: {waitingListCount}";
         }
 
         private void FormVenue_Load(object sender, EventArgs e)
         {
             UpdateHeader();
+        }
+
+        private void btnAddWaitingList_Click(object sender, EventArgs e)
+        {
+            if ((seatsBook.Count != 0) && (seatsBook.Count <= 12))
+            {
+                lblFooter.Text = "There are seats available. Please select one to book.";
+                return;
+            }
+
+            else
+            {
+                string selectedRow = lstRow.SelectedItem?.ToString();
+                string selectedCol = lstCol.SelectedItem?.ToString();
+                string customerName = txtCustomerName.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(selectedRow) || string.IsNullOrWhiteSpace(selectedCol))
+                {
+                    lblFooter.Text = "Select a Row and Column to book!";
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(customerName))
+                {
+                    lblFooter.Text = "Enter a valid name to book!";
+                    return;
+                }
+
+                string seatID = $"{selectedRow}{selectedCol}";
+
+                if (seatsBook.Any(s => s.StartsWith($"{seatID},")))
+                {
+                    lblFooter.Text = $"Seat {seatID} is occupied. Choose another seat.";
+                }
+                else
+                {
+                    waitingList.Add($"{seatID},{customerName}");
+                    //Updating the header
+                    UpdateHeader();
+                    lblFooter.Text = $"{customerName} was added to the waiting list.";
+                }
+            }
+        }
+
+        private void btnFillAllSeats_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
