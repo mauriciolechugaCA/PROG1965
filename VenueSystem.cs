@@ -13,17 +13,16 @@ namespace Assignment_1
         private List<string> waitingList = new List<string>();
 
         //METHOD -> Book the seat
-        //Label -> I found on the internet
         public void BookSeat(string selectedRow, string selectedCol, string customerName, Label lblFooter, Label lblHeader)
         {
-            // Validar a seleção da linha e coluna
+            //Validating if Row or Col are selected
             if (string.IsNullOrWhiteSpace(selectedRow) || string.IsNullOrWhiteSpace(selectedCol))
             {
                 lblFooter.Text = "Select a Row and Column to book!";
                 return;
             }
 
-            // Validar o nome do cliente
+            //Validating the name
             if (string.IsNullOrWhiteSpace(customerName))
             {
                 lblFooter.Text = "Enter a valid name to book!";
@@ -32,6 +31,7 @@ namespace Assignment_1
 
             string seatID = $"{selectedRow}{selectedCol}";
 
+            //Checking if the seat is available
             if (seatsBook.Any(s => s.StartsWith($"{seatID},")))
             {
                 lblFooter.Text = $"Seat {seatID} is occupied. Choose another seat.";
@@ -45,6 +45,7 @@ namespace Assignment_1
             }
         }
 
+        //METHOD -> Cancel the book
         public void CancelSeat(string selectedRow, string selectedCol, Label lblFooter, Label lblHeader)
         {
             if (string.IsNullOrWhiteSpace(selectedRow) || string.IsNullOrWhiteSpace(selectedCol))
@@ -63,8 +64,9 @@ namespace Assignment_1
                 {
                     seatsBook.RemoveAll(s => s.StartsWith($"{seatID},"));
                     //ChangeLabelColor(seatID, Color.Lime);
-                    UpdateHeader(lblHeader);
                     lblFooter.Text = $"Reservation for {seatID} was cancelled.";
+                    CompleteWithWaitingList(seatID, lblFooter);
+                    UpdateHeader(lblHeader);
                 }
                 else
                 {
@@ -102,7 +104,8 @@ namespace Assignment_1
 
         public void AddWaitingList(string selectedRow, string selectedCol, string customerName, Label lblFooter, Label lblHeader)
         {
-            if ((seatsBook.Count != 0) && (seatsBook.Count <= 12))
+            //if ((seatsBook.Count != 0) && (seatsBook.Count <= 12))
+            if (seatsBook.Count < 12)
             {
                 lblFooter.Text = "There are seats available. Please select one to book.";
                 return;
@@ -110,11 +113,11 @@ namespace Assignment_1
 
             else
             {
-                if (string.IsNullOrWhiteSpace(selectedRow) || string.IsNullOrWhiteSpace(selectedCol))
-                {
-                    lblFooter.Text = "Select a Row and Column to book!";
-                    return;
-                }
+                //if (string.IsNullOrWhiteSpace(selectedRow) || string.IsNullOrWhiteSpace(selectedCol))
+                //{
+                //    lblFooter.Text = "Select a Row and Column to book!";
+                //    return;
+                //}
 
                 if (string.IsNullOrWhiteSpace(customerName))
                 {
@@ -122,18 +125,87 @@ namespace Assignment_1
                     return;
                 }
 
-                string seatID = $"{selectedRow}{selectedCol}";
+                //string seatID = $"{selectedRow}{selectedCol}";
 
-                if (seatsBook.Any(s => s.StartsWith($"{seatID},")))
+                //if (seatsBook.Any(s => s.StartsWith($"{seatID},")))
+                //{
+                //    lblFooter.Text = $"Seat {seatID} is occupied. Choose another seat.";
+                //}
+                waitingList.Add($"{customerName}");
+                UpdateHeader(lblHeader);
+                lblFooter.Text = $"{customerName} was added to the waiting list.";
+            }
+        }
+
+        public void ChangeLabelColor(string seatID, Color color)
+        {
+            //string labelName = $"lblSeat{seatID}";
+            //Control[] controls = FormVenue.grpVenue.Controls.Find(labelName, true);
+
+            //if (controls.Length > 0 && controls[0] is Label)
+            //{
+            //    ((Label)controls[0]).BackColor = color;
+            //}
+        }
+
+        public void FillAllSeats(Label lblFooter, Label lblHeader)
+        {
+            if (seatsBook.Count == 12)
+            {
+                lblFooter.Text = "There are no seats available. Please use the Waiting List.";
+                return;
+            }
+
+            string nameGeneric = "Anonymous";
+
+            //Checking the seats for Row A
+            for (int row = 1; row <= 4; row++)
+            {
+                string seatID = $"A{row}";
+                if (!seatsBook.Any(s => s.StartsWith($"{seatID},")))
                 {
-                    lblFooter.Text = $"Seat {seatID} is occupied. Choose another seat.";
+                    seatsBook.Add($"{seatID},{nameGeneric}");
+                    //ChangeLabelColor(seatID, Color.Red);
                 }
-                else
+            }
+
+            for (int row = 1; row <= 4; row++)
+            {
+                string seatID = $"B{row}";
+                if (!seatsBook.Any(s => s.StartsWith($"{seatID},")))
                 {
-                    waitingList.Add($"{seatID},{customerName}");
-                    UpdateHeader(lblHeader);
-                    lblFooter.Text = $"{customerName} was added to the waiting list.";
+                    seatsBook.Add($"{seatID},{nameGeneric}");
+                    //ChangeLabelColor(seatID, Color.Red);
                 }
+            }
+
+            // Preencher os assentos da coluna C
+            for (int row = 1; row <= 4; row++)
+            {
+                string seatID = $"C{row}";
+                if (!seatsBook.Any(s => s.StartsWith($"{seatID},")))
+                {
+                    seatsBook.Add($"{seatID},{nameGeneric}");
+                    //ChangeLabelColor(seatID, Color.Red);
+                }
+            }
+
+            UpdateHeader(lblHeader);
+            lblFooter.Text = $"All seat were filled.";
+        }
+
+        private void CompleteWithWaitingList(string seatID, Label lblFooter)
+        {
+            if (waitingList.Any())
+            {
+                string firstWaitingList = waitingList.First();
+                waitingList.Remove(firstWaitingList);
+
+                seatsBook.Add($"{seatID},{firstWaitingList}");
+
+                lblFooter.Text += $" Seat {seatID} is booked for {firstWaitingList} from the Waiting List.";
+
+                //ChangeLabelColor(seatID, Color.Red);
             }
         }
 
