@@ -90,6 +90,11 @@ namespace Assignment_1
             seatsBook.Clear();
             UpdateHeader(lblHeader);
             lblFooter.Text = $"All bookings were cancelled.";
+            if (waitingList.Any())
+            {
+                CompleteWithAllWaitingList(lblFooter);
+                UpdateHeader(lblHeader);
+            }
         }
 
         public void UpdateHeader(Label lblHeader)
@@ -207,6 +212,73 @@ namespace Assignment_1
 
                 //ChangeLabelColor(seatID, Color.Red);
             }
+        }
+
+        private void CompleteWithAllWaitingList(Label lblFooter)
+        {
+            //A Row
+            for (int row = 1; row <= 4; row++)
+            {
+                if (waitingList.Any())
+                {
+                    string firstWaitingList = waitingList.First();
+                    waitingList.Remove(firstWaitingList);
+                    string seatID = $"A{row}";
+                    if (!seatsBook.Any(s => s.StartsWith($"{seatID},")))
+                    {
+                        seatsBook.Add($"{seatID},{firstWaitingList}");
+                        lblFooter.Text += $"\nSeat {seatID} was booked for {firstWaitingList} from the Waiting List.";
+                        //ChangeLabelColor(seatID, Color.Red);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+
+            //B Row
+            for (int row = 1; row <= 4; row++)
+            {
+                if (waitingList.Any())
+                {
+                    string firstWaitingList = waitingList.First();
+                    waitingList.Remove(firstWaitingList);
+                    string seatID = $"B{row}";
+                    if (!seatsBook.Any(s => s.StartsWith($"{seatID},")))
+                    {
+                        seatsBook.Add($"{seatID},{firstWaitingList}");
+                        lblFooter.Text += $"\nSeat {seatID} was booked for {firstWaitingList} from the Waiting List.";
+                        //ChangeLabelColor(seatID, Color.Red);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+
+            //C Row
+            for (int row = 1; row <= 4; row++)
+            {
+                if (waitingList.Any())
+                {
+                    string firstWaitingList = waitingList.First();
+                    waitingList.Remove(firstWaitingList);
+                    string seatID = $"A{row}";
+                    if (!seatsBook.Any(s => s.StartsWith($"{seatID},")))
+                    {
+                        seatsBook.Add($"{seatID},{firstWaitingList}");
+                        lblFooter.Text += $"\nSeat {seatID} was booked for {firstWaitingList} from the Waiting List.";
+                        //ChangeLabelColor(seatID, Color.Red);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+
         }
 
     }
