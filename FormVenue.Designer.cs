@@ -62,18 +62,16 @@
             lblHeader.AutoSize = true;
             lblHeader.Location = new Point(26, 15);
             lblHeader.Name = "lblHeader";
-            lblHeader.Size = new Size(58, 20);
+            lblHeader.Size = new Size(0, 20);
             lblHeader.TabIndex = 0;
-            lblHeader.Text = "Header";
             // 
             // lblFooter
             // 
             lblFooter.AutoSize = true;
             lblFooter.Location = new Point(26, 403);
             lblFooter.Name = "lblFooter";
-            lblFooter.Size = new Size(52, 20);
+            lblFooter.Size = new Size(0, 20);
             lblFooter.TabIndex = 1;
-            lblFooter.Text = "Footer";
             // 
             // grpVenue
             // 
@@ -102,7 +100,7 @@
             lblSeatC4.BorderStyle = BorderStyle.FixedSingle;
             lblSeatC4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatC4.Location = new Point(325, 228);
-            lblSeatC4.Margin = new Padding(3, 3, 3, 3);
+            lblSeatC4.Margin = new Padding(3);
             lblSeatC4.Name = "lblSeatC4";
             lblSeatC4.Padding = new Padding(5, 4, 5, 4);
             lblSeatC4.Size = new Size(71, 61);
@@ -116,7 +114,7 @@
             lblSeatC3.BorderStyle = BorderStyle.FixedSingle;
             lblSeatC3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatC3.Location = new Point(225, 228);
-            lblSeatC3.Margin = new Padding(3, 3, 3, 3);
+            lblSeatC3.Margin = new Padding(3);
             lblSeatC3.Name = "lblSeatC3";
             lblSeatC3.Padding = new Padding(5, 4, 5, 4);
             lblSeatC3.Size = new Size(71, 61);
@@ -130,7 +128,7 @@
             lblSeatC2.BorderStyle = BorderStyle.FixedSingle;
             lblSeatC2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatC2.Location = new Point(125, 228);
-            lblSeatC2.Margin = new Padding(3, 3, 3, 3);
+            lblSeatC2.Margin = new Padding(3);
             lblSeatC2.Name = "lblSeatC2";
             lblSeatC2.Padding = new Padding(5, 4, 5, 4);
             lblSeatC2.Size = new Size(71, 61);
@@ -144,7 +142,7 @@
             lblSeatC1.BorderStyle = BorderStyle.FixedSingle;
             lblSeatC1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatC1.Location = new Point(25, 228);
-            lblSeatC1.Margin = new Padding(3, 3, 3, 3);
+            lblSeatC1.Margin = new Padding(3);
             lblSeatC1.Name = "lblSeatC1";
             lblSeatC1.Padding = new Padding(5, 4, 5, 4);
             lblSeatC1.Size = new Size(71, 61);
@@ -158,7 +156,7 @@
             lblSeatB4.BorderStyle = BorderStyle.FixedSingle;
             lblSeatB4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatB4.Location = new Point(325, 131);
-            lblSeatB4.Margin = new Padding(3, 3, 3, 3);
+            lblSeatB4.Margin = new Padding(3);
             lblSeatB4.Name = "lblSeatB4";
             lblSeatB4.Padding = new Padding(5, 4, 5, 4);
             lblSeatB4.Size = new Size(71, 61);
@@ -172,7 +170,7 @@
             lblSeatB3.BorderStyle = BorderStyle.FixedSingle;
             lblSeatB3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatB3.Location = new Point(225, 131);
-            lblSeatB3.Margin = new Padding(3, 3, 3, 3);
+            lblSeatB3.Margin = new Padding(3);
             lblSeatB3.Name = "lblSeatB3";
             lblSeatB3.Padding = new Padding(5, 4, 5, 4);
             lblSeatB3.Size = new Size(71, 61);
@@ -186,7 +184,7 @@
             lblSeatB2.BorderStyle = BorderStyle.FixedSingle;
             lblSeatB2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatB2.Location = new Point(125, 131);
-            lblSeatB2.Margin = new Padding(3, 3, 3, 3);
+            lblSeatB2.Margin = new Padding(3);
             lblSeatB2.Name = "lblSeatB2";
             lblSeatB2.Padding = new Padding(5, 4, 5, 4);
             lblSeatB2.Size = new Size(71, 61);
@@ -200,7 +198,7 @@
             lblSeatB1.BorderStyle = BorderStyle.FixedSingle;
             lblSeatB1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatB1.Location = new Point(25, 131);
-            lblSeatB1.Margin = new Padding(3, 3, 3, 3);
+            lblSeatB1.Margin = new Padding(3);
             lblSeatB1.Name = "lblSeatB1";
             lblSeatB1.Padding = new Padding(5, 4, 5, 4);
             lblSeatB1.Size = new Size(71, 61);
@@ -214,7 +212,7 @@
             lblSeatA4.BorderStyle = BorderStyle.FixedSingle;
             lblSeatA4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatA4.Location = new Point(325, 32);
-            lblSeatA4.Margin = new Padding(3, 3, 3, 3);
+            lblSeatA4.Margin = new Padding(3);
             lblSeatA4.Name = "lblSeatA4";
             lblSeatA4.Padding = new Padding(5, 4, 5, 4);
             lblSeatA4.Size = new Size(71, 61);
@@ -228,7 +226,7 @@
             lblSeatA3.BorderStyle = BorderStyle.FixedSingle;
             lblSeatA3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatA3.Location = new Point(225, 32);
-            lblSeatA3.Margin = new Padding(3, 3, 3, 3);
+            lblSeatA3.Margin = new Padding(3);
             lblSeatA3.Name = "lblSeatA3";
             lblSeatA3.Padding = new Padding(5, 4, 5, 4);
             lblSeatA3.Size = new Size(71, 61);
@@ -242,7 +240,7 @@
             lblSeatA2.BorderStyle = BorderStyle.FixedSingle;
             lblSeatA2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatA2.Location = new Point(125, 32);
-            lblSeatA2.Margin = new Padding(3, 3, 3, 3);
+            lblSeatA2.Margin = new Padding(3);
             lblSeatA2.Name = "lblSeatA2";
             lblSeatA2.Padding = new Padding(5, 4, 5, 4);
             lblSeatA2.Size = new Size(71, 61);
@@ -256,7 +254,7 @@
             lblSeatA1.BorderStyle = BorderStyle.FixedSingle;
             lblSeatA1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeatA1.Location = new Point(25, 32);
-            lblSeatA1.Margin = new Padding(3, 3, 3, 3);
+            lblSeatA1.Margin = new Padding(3);
             lblSeatA1.Name = "lblSeatA1";
             lblSeatA1.Padding = new Padding(5, 4, 5, 4);
             lblSeatA1.Size = new Size(71, 61);
